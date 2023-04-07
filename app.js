@@ -65,15 +65,14 @@ function checkDays(days) {
     if(days == '') {
         errorDay.innerText = emptyErrMsg;
         titles[0].style.color = 'hsl(0, 100%, 67%)';
+        emptyResult();
         return false
     }
     
     else if( days < 1 || days > 31) {
         errorDay.innerText = dayErrMsg; 
         titles[0].style.color = 'hsl(0, 100%, 67%)';
-        resultYear.innerText = '--';
-        resultMonth.innerText = '--';
-        resultDay.innerText = '--';
+        emptyResult();
         return false
     }
     
@@ -88,15 +87,14 @@ function checkMonths(months) {
     if(months == '') {
         errorMonth.textContent = emptyErrMsg;
         titles[1].style.color = 'hsl(0, 100%, 67%)';
+        emptyResult();
         return false
     }
     
     if( months < 1 || months > 12) {
         errorMonth.innerText = monthErrMsg; 
         titles[1].style.color = 'hsl(0, 100%, 67%)';
-        resultYear.innerText = '--';
-        resultMonth.innerText = '--';
-        resultDay.innerText = '--';;
+        emptyResult();
         return false
     }
     
@@ -111,15 +109,14 @@ function checkYears(years) {
     if(years == '') {
         errorYear.textContent = emptyErrMsg
         titles[2].style.color = 'hsl(0, 100%, 67%)';
+        emptyResult();
         return false;
     }
 
     if(years > new Date().getFullYear()) {
         errorYear.textContent = yearErrMsg;
         titles[2].style.color = 'hsl(0, 100%, 67%)';
-        resultYear.innerText = '--';
-        resultMonth.innerText = '--';
-        resultDay.innerText = '--';
+        emptyResult();
         return false;
     }
 
@@ -128,4 +125,10 @@ function checkYears(years) {
         titles[2].style.color = '';
         return true;
     }
+}
+
+function emptyResult() {
+    resultYear.innerText = '--';
+    resultMonth.innerText = '--';
+    resultDay.innerText = '--';
 }
